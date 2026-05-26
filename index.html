@@ -9,10 +9,20 @@
   <body>
     <div class="header">
       <p class="no-padding-no-margin big-font">Nat Ware</p>
+      <div class="side-by-side small-font">
+        <button id="contact-button" type="button">Contact</button>
+        <pre class="no-padding-no-margin"> · </pre>
+        <a
+          href="https://www.instagram.com/nat__ware/"
+          target="_blank"
+          class="no-padding-no-margin small-font"
+          >Instagram</a
+        >
+      </div>
     </div>
     <div class="side-by-side">
       <div class="side-bar small-font">
-        <ul>
+        <ul id="side-bar-ul">
           <li class="clickable selected">Info</li>
           <li>Artist Books</li>
           <ul>
@@ -67,7 +77,40 @@
         </div>
       </div>
     </div>
-    <p class="copyright">© 2026 Nat Ware</p>
+    <p class="copyright small-font">© 2026 Nat Ware</p>
+    <div class="modal-overlay">
+      <div class="contact-modal">
+        <div class="form-complete stacked">
+          <p class="small-font">
+            Your message was sent! I'll get back to you as soon as I can.
+          </p>
+          <div class="right-side">
+            <button type="button" class="close-modal-button">
+              Return to Site
+            </button>
+          </div>
+        </div>
+        <form class="contact-form small-font">
+          <p class="no-padding-no-margin med-font">Contact</p>
+          <input type="text" name="name" placeholder="(Your name)" />
+          <input
+            type="email"
+            name="email"
+            placeholder="(Your email)"
+            required
+          />
+          <textarea
+            name="message"
+            placeholder="(Write your message...)"
+            required
+          ></textarea>
+          <div class="between-children">
+            <button type="button" class="close-modal-button">Cancel</button>
+            <button type="submit">Send Message</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </body>
   <script type="module" src="script.js"></script>
 </html>
