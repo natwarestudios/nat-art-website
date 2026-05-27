@@ -8,6 +8,9 @@
 
 body {
   margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .no-scroll {
@@ -39,13 +42,28 @@ body {
   flex-grow: 1;
   justify-content: center;
   margin: 0px 32px;
+  min-height: 0px;
 }
+
+.container > div {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
 .stacked {
   display: flex;
   flex-direction: column;
 }
 
 .flex1 {
+  flex: 1;
+  min-height: 0px;
+}
+
+.overflow {
+  min-height: 0px;
+  overflow: auto;
   flex: 1;
 }
 
@@ -96,8 +114,12 @@ button:hover {
   margin: 0;
 }
 
-.big-font {
+.xtra-big-font {
   font-size: 24px;
+}
+
+.big-font {
+  font-size: 20px;
 }
 
 .med-font {
@@ -111,7 +133,7 @@ button:hover {
 .copyright {
   color: #979799;
   text-align: center;
-  margin: 0 auto;
+  margin: 8px auto;
 }
 
 .description {
@@ -188,4 +210,19 @@ textarea {
 .right-side {
   display: flex;
   justify-content: flex-end;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar {
+  margin: 0px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d3d3d3;
+  border: 2px solid transparent;
+  background-clip: padding-box;
 }
