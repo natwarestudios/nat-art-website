@@ -38,7 +38,7 @@ body {
   display: flex;
   flex-grow: 1;
   justify-content: center;
-  margin-right: 32px;
+  margin: 0px 32px;
 }
 .stacked {
   display: flex;
@@ -64,6 +64,7 @@ ul {
   list-style-type: none;
   padding: 16px;
   background-color: #f1f1f3;
+  margin: 0;
 }
 
 ul ul {
