@@ -1,3 +1,4 @@
+// button highlighting
 document.querySelectorAll(".clickable").forEach((element) => {
   element.addEventListener("click", () => {
     // deselect other clickable elements
@@ -8,6 +9,7 @@ document.querySelectorAll(".clickable").forEach((element) => {
   });
 });
 
+// contact form modal
 const modal = document.querySelector(".modal-overlay");
 const form = document.querySelector(".contact-form");
 const formCompleteInfo = document.querySelector(".form-complete");
@@ -68,3 +70,34 @@ function closeFormModal() {
   form.reset();
   document.body.classList.remove("no-scroll");
 }
+
+// loading images
+const fileNames = [
+  "ankara-2-copy.jpg",
+  "ankara-5-copy.jpg",
+  "ankara-7-copy.jpg",
+  "ankara-window-copy.jpg",
+  "antalya-beach-2-copy.jpg",
+  "antalya-bw-broken-window-copy.jpg",
+  "antalya-net-bw-2-copy.jpg",
+  "sheep-bw-16-copy.jpg",
+  "ankara-2-copy.jpg",
+  "ankara-5-copy.jpg",
+  "ankara-7-copy.jpg",
+  "ankara-window-copy.jpg",
+  "antalya-beach-2-copy.jpg",
+  "antalya-bw-broken-window-copy.jpg",
+  "antalya-net-bw-2-copy.jpg",
+  "sheep-bw-16-copy.jpg",
+  "antalya-net-bw-2-copy.jpg",
+  "sheep-bw-16-copy.jpg",
+  "ankara-2-copy.jpg",
+];
+
+const galleryDisplay = document.getElementById("gallery-display");
+fileNames.forEach((fileName) => {
+  const img = document.createElement("img");
+  img.src = `./nat-fotos/${fileName}`;
+  img.classList.add("gallery-img");
+  galleryDisplay.appendChild(img);
+});

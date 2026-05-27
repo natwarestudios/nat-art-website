@@ -67,9 +67,9 @@ body {
   flex: 1;
 }
 
-.example-img {
-  width: 600px;
-  height: 400px;
+.selected-img {
+  width: 40vw;
+  height: 40vw;
   background-color: blueviolet;
   margin: 0 auto;
 }
@@ -225,4 +225,16 @@ textarea {
   background: #d3d3d3;
   border: 2px solid transparent;
   background-clip: padding-box;
+}
+
+#gallery-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 50vw;
+}
+
+.gallery-img {
+  max-width: 100px;
+  max-height: 100px;
 }
