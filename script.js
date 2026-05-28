@@ -94,10 +94,19 @@ const fileNames = [
   "ankara-2-copy.jpg",
 ];
 
+const mainImage = document.getElementById("main-img");
 const galleryDisplay = document.getElementById("gallery-display");
 fileNames.forEach((fileName) => {
+  // setting up photo previews
   const img = document.createElement("img");
   img.src = `./nat-fotos/${fileName}`;
   img.classList.add("gallery-img");
+  img.addEventListener("click", () => {
+    img.parentNode.childNodes.forEach((img) => {
+      img.classList.remove("selected");
+    });
+    img.classList.add("selected");
+    mainImage.src = `./nat-fotos/${fileName}`;
+  });
   galleryDisplay.appendChild(img);
 });

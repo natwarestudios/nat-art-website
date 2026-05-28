@@ -67,9 +67,9 @@ body {
   flex: 1;
 }
 
-.selected-img {
-  width: 40vw;
-  height: 40vw;
+#main-img {
+  max-width: 50vw;
+  max-height: 40vw;
   background-color: blueviolet;
   margin: 0 auto;
 }
@@ -104,7 +104,8 @@ button {
 
 .clickable:hover,
 a:hover,
-button:hover {
+button:hover,
+.gallery-img:hover {
   background-color: #d3d3d3;
   cursor: pointer;
 }
@@ -137,7 +138,7 @@ button:hover {
 }
 
 .description {
-  max-width: 50vw;
+  min-width: 10vw;
 }
 
 .selected {
@@ -230,11 +231,21 @@ textarea {
 #gallery-display {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 8px;
   max-width: 50vw;
+  padding-left: 2px;
 }
 
 .gallery-img {
   max-width: 100px;
   max-height: 100px;
+  padding: 8px;
+}
+
+.big-gap {
+  gap: 32px;
+}
+
+.big-bottom-gap {
+  margin-bottom: 16px;
 }
