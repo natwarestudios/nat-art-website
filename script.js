@@ -110,3 +110,12 @@ fileNames.forEach((fileName) => {
   });
   galleryDisplay.appendChild(img);
 });
+
+import { createIcons, ChevronRight, ChevronLeft } from "https://esm.sh/lucide";
+
+createIcons({
+  icons: {
+    ChevronRight,
+    ChevronLeft,
+  },
+});

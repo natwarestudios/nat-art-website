@@ -228,12 +228,17 @@ textarea {
   background-clip: padding-box;
 }
 
+#gallery-display::-webkit-scrollbar {
+  display: none;
+}
+
 #gallery-display {
   display: flex;
-  flex-wrap: wrap;
   gap: 8px;
   max-width: 50vw;
   padding-left: 2px;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
 
 .gallery-img {
@@ -248,4 +253,8 @@ textarea {
 
 .big-bottom-gap {
   margin-bottom: 16px;
+}
+
+.center {
+  align-items: center;
 }
