@@ -1,14 +1,3 @@
-// button highlighting
-document.querySelectorAll(".clickable").forEach((element) => {
-  element.addEventListener("click", () => {
-    // deselect other clickable elements
-    document.querySelectorAll(".clickable").forEach((deselectedElement) => {
-      deselectedElement.classList.remove("selected");
-    });
-    element.classList.add("selected");
-  });
-});
-
 // contact form modal
 const modal = document.querySelector(".modal-overlay");
 const form = document.querySelector(".contact-form");
@@ -94,23 +83,6 @@ const fileNames = [
   "ankara-2-copy.jpg",
 ];
 
-const mainImage = document.getElementById("main-img");
-const galleryDisplay = document.getElementById("gallery-display");
-fileNames.forEach((fileName) => {
-  // setting up photo previews
-  const img = document.createElement("img");
-  img.src = `./nat-fotos/${fileName}`;
-  img.classList.add("gallery-img");
-  img.addEventListener("click", () => {
-    img.parentNode.childNodes.forEach((img) => {
-      img.classList.remove("selected");
-    });
-    img.classList.add("selected");
-    mainImage.src = `./nat-fotos/${fileName}`;
-  });
-  galleryDisplay.appendChild(img);
-});
-
 import { createIcons, ChevronRight, ChevronLeft } from "https://esm.sh/lucide";
 
 createIcons({
@@ -119,3 +91,74 @@ createIcons({
     ChevronLeft,
   },
 });
+
+const sections = {
+  Info: {
+    title: "Info",
+    description:
+      "Nat Ware is a photographer originally from the Pacific Northwest now living in Chicago. They hold a B.F.A. from the School of the Art Institute of Chicago. They also help run Amateur Press, a small independent photobook press.",
+    folder: null,
+    images: [],
+  },
+  "The Light Gets In": {
+    title: "The Light Gets In published by Amateur Press June 2025",
+    description:
+      "Images build through repetition, erasure, overlay. The surface of the work is a site of accumulation. Rust, residue, gesture all sit in relation in these images. The Light Gets In reads as a visual whisper, modest in scale, but precise in its resonance. It’s less about declaring a moment, and more about holding space for one to emerge. What’s revealed isn’t the scene itself, but how the artist moves through it carefully, and responsively, which highlights the relationship between place and memory. What is prescribed and overlaid versus what is inherited and naturalized.",
+  },
+};
+
+const title = document.getElementById("title");
+const description = document.querySelector(".description");
+const mainImage = document.getElementById("main-img");
+const galleryDisplay = document.getElementById("gallery-display");
+
+function loadSection(sectionName) {
+  const section = sections[sectionName];
+
+  // set title
+  title.textContent = section.title;
+  // set description
+  if (section.description != "") {
+    description.style.display = "block";
+    description.textContent = section.description;
+  } else {
+    description.style.display = "none";
+  }
+  // set gallery imgs
+  galleryDisplay.innerHTML = "";
+  if (section.images.length < 1) {
+    mainImage.src = "";
+  } else {
+    section.images.forEach((image, index) => {
+      const img = document.createElement("img");
+      img.src = section.folder + image;
+      img.classList.add("gallery-img");
+      img.addEventListener("click", () => {
+        img.parentNode.childNodes.forEach((img) => {
+          img.classList.remove("selected");
+        });
+        img.classList.add("selected");
+        mainImage.src = img.src;
+      });
+      galleryDisplay.appendChild(img);
+      // select first img by default
+      if (index === 0) {
+        img.click();
+      }
+    });
+  }
+}
+
+// side bar buttons
+document.querySelectorAll(".clickable").forEach((element) => {
+  element.addEventListener("click", () => {
+    // deselect other clickable elements
+    document.querySelectorAll(".clickable").forEach((deselectedElement) => {
+      deselectedElement.classList.remove("selected");
+    });
+    element.classList.add("selected");
+    loadSection(element.textContent.trim());
+  });
+});
+
+loadSection("Info");

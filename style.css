@@ -69,9 +69,10 @@ body {
 
 #main-img {
   max-width: 50vw;
-  max-height: 40vw;
-  background-color: blueviolet;
-  margin: 0 auto;
+  max-height: 33vw;
+  margin-bottom: 8px;
+  justify-self: center;
+  align-self: center;
 }
 
 #side-bar-ul {
@@ -255,6 +256,14 @@ textarea {
   margin-bottom: 16px;
 }
 
-.center {
+.gallery-container {
+  max-width: 50vw;
   align-items: center;
+  background-color: #f1f1f3;
+  outline: solid 1px black;
+  width: 100%;
+}
+
+.arrow {
+  min-width: 16px;
 }
