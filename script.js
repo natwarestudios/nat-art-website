@@ -95,19 +95,121 @@ createIcons({
 const sections = {
   Info: {
     title: "Info",
+    subtitle: "",
     description:
       "Nat Ware is a photographer originally from the Pacific Northwest now living in Chicago. They hold a B.F.A. from the School of the Art Institute of Chicago. They also help run Amateur Press, a small independent photobook press.",
     folder: null,
     images: [],
   },
   "The Light Gets In": {
-    title: "The Light Gets In published by Amateur Press June 2025",
+    title: "The Light Gets In",
+    subtitle: "published by Amateur Press June 2025",
     description:
       "Images build through repetition, erasure, overlay. The surface of the work is a site of accumulation. Rust, residue, gesture all sit in relation in these images. The Light Gets In reads as a visual whisper, modest in scale, but precise in its resonance. It’s less about declaring a moment, and more about holding space for one to emerge. What’s revealed isn’t the scene itself, but how the artist moves through it carefully, and responsively, which highlights the relationship between place and memory. What is prescribed and overlaid versus what is inherited and naturalized.",
+    folder: "the-light-gets-in/",
+    images: [
+      "book-photos-1.jpg",
+      "book-photos-2.jpg",
+      "book-photos-3.jpg",
+      "IMG_2975.jpeg",
+      "IMG_2976.jpeg",
+      "vacant-lot-portland-1-copy.jpg",
+      "vacant-lot-portland-3-copy.jpg",
+      "vacant-lot-portland-4-copy.jpg",
+      "vacant-lot-portland-5-copy.jpg",
+      "vacant-lot-portland-6-copy.jpg",
+      "vacant-lot-portland-10-copy.jpg",
+      "vacant-lot-portland-12-copy.jpg",
+      "vacant-lot-portland-13-copy.jpg",
+      "vacant-lot-portland-14-copy.jpg",
+      "vacant-lot-portland-15-copy.jpg",
+      "vacant-lot-portland-16-copy.jpg",
+      "vacant-lot-portland-20-copy.jpg",
+    ],
+  },
+  "Northwest South Road": {
+    title: "Northwest South Road",
+    subtitle: "published by General Things Press November 2024",
+    description: `"Northwest South Road" by Nat Ware was published in 2024 by General Things Press. The small risographed perfect bound book is 81 pages long, and about 4 1/2" x 5 1/2". The work is composed of photographs taken by Ware during a return trip to their family's home in August 2023. The images feature roadside textures, blackberry bushes at night, birds, and shifting light. The photos resist the notion of landscape as a static subject. Instead, they propose a different kind of record: one grounded in motion, attention, and memory. These are not definitive views, but passing ones, and the photographic frame offers both clarity and interruption. The camera becomes a participant in the landscape rather than a tool of capture. The photographs operate simultaneously as documentation and notation—marking both external details and internal rhythms. Here, the act of looking is inseparable from the terrain itself: slow, searching, and subject to change. Northwest South Road invites viewers into a geography shaped not just by location, but by return, by the way memory travels through space, and how the familiar continues to shift beneath the surface of close observation.`,
+    folder: "northwest-south-road/",
+    images: [
+      "nat_ware_1.jpg",
+      "nat_ware_2.jpg",
+      "nat_ware_3.jpg",
+      "nat_ware_4.jpg",
+      "nat_ware_5.jpg",
+      "arcanite-1.jpg",
+      "arcanite-2.jpg",
+      "arcanite-5.jpg",
+      "arcanite-8.jpg",
+      "arcanite-10.jpg",
+      "arcanite-12.jpg",
+      "arcanite-13.jpg",
+      "arcanite-14.jpg",
+      "arcanite-15.jpg",
+      "dust-behind-truck-1-copy.jpg",
+    ],
+  },
+  2026: {
+    title: "Photography",
+    subtitle: "2026",
+    description: "",
+    folder: null,
+    images: [],
+  },
+  2025: {
+    title: "Photography",
+    subtitle: "2025",
+    description: "",
+    folder: null,
+    images: [],
+  },
+  2024: {
+    title: "Photography",
+    subtitle: "2024",
+    description: "",
+    folder: null,
+    images: [],
+  },
+  2023: {
+    title: "Photography",
+    subtitle: "2023",
+    description: "",
+    folder: null,
+    images: [],
+  },
+  "2018-2022": {
+    title: "Photography",
+    subtitle: "2018 - 2022",
+    description: "",
+    folder: null,
+    images: [],
+  },
+  "2023-2026": {
+    title: "Painting & Mixed Media",
+    subtitle: "2023 - 2026",
+    description: "",
+    folder: null,
+    images: [],
+  },
+  "To What End": {
+    title: "To What End",
+    subtitle: "with Jordan Keyes at the Second Room",
+    description: "",
+    folder: null,
+    images: [],
+  },
+  Unmoored: {
+    title: "Umoored",
+    subtitle: "group show at Mana Contemporary",
+    description: "",
+    folder: null,
+    images: [],
   },
 };
 
 const title = document.getElementById("title");
+const subtitle = document.getElementById("subtitle");
 const description = document.querySelector(".description");
 const mainImage = document.getElementById("main-img");
 const galleryDisplay = document.getElementById("gallery-display");
@@ -117,6 +219,13 @@ function loadSection(sectionName) {
 
   // set title
   title.textContent = section.title;
+  // set subtitle
+  if (section.subtitle != "") {
+    subtitle.style.display = "block";
+    subtitle.textContent = section.subtitle;
+  } else {
+    subtitle.style.display = "none";
+  }
   // set description
   if (section.description != "") {
     description.style.display = "block";
@@ -131,7 +240,7 @@ function loadSection(sectionName) {
   } else {
     section.images.forEach((image, index) => {
       const img = document.createElement("img");
-      img.src = section.folder + image;
+      img.src = "images/" + section.folder + image;
       img.classList.add("gallery-img");
       img.addEventListener("click", () => {
         img.parentNode.childNodes.forEach((img) => {
