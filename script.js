@@ -96,8 +96,17 @@ const sections = {
   Info: {
     title: "Info",
     subtitle: "",
-    description:
-      "Nat Ware is a photographer originally from the Pacific Northwest now living in Chicago. They hold a B.F.A. from the School of the Art Institute of Chicago. They also help run Amateur Press, a small independent photobook press.",
+    description: `
+    <div>
+
+    <div>
+      <p>Nat Ware is a photographer originally from the Pacific Northwest now living in Chicago.</p>
+      <p>They hold a B.F.A. from the School of the Art Institute of Chicago.</p>
+      <p>They also help run Amateur Press, a small independent photobook press.</p> 
+      <p>---</p>
+    </div>
+        <img src="images/unnamed.jpg">
+    </div>`,
     folder: null,
     images: [],
   },
@@ -229,7 +238,7 @@ function loadSection(sectionName) {
   // set description
   if (section.description != "") {
     description.style.display = "block";
-    description.textContent = section.description;
+    description.innerHTML = section.description;
   } else {
     description.style.display = "none";
   }
