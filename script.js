@@ -116,39 +116,39 @@ const sections = {
     description: `
     <div>
       <p>Solo Exhibitions:</p>
-      <p>&emsp;2019, StudioUs, Nat Ware, Chicago, IL</p>
+      <p>&emsp;2019, StudioUs, <em>Nat Ware</em>, Chicago, IL</p>
       <br>
       <p>Duo Exhibitions:</p>
-      <p>&emsp;2024, The Second Room, To What End, Chicago, IL - in collaboration with Jordan Keyes</p>
+      <p>&emsp;2024, The Second Room, <em>To What End</em>, Chicago, IL - in collaboration with Jordan Keyes</p>
       <br>
       <p>Group Exhibitions:</p>
-      <p>&emsp;2026, University of Arkansas, Deflate, Fayettville, AR</p>
-      <p>&emsp;2025, Treehouse, Corpora/Simulacrum, Chicago, IL</p>
-      <p>&emsp;2025, Parlour and Ramp, Through the Lens: An Analog Perspective, Chicago, IL - exhibition extended and moved to Bellows Film Lab, Chicago, IL</p>
-      <p>&emsp;2022, Mana Contemporary, Unmoored, Chicago, IL</p>
-      <p>&emsp;2022, SAIC Galleries, Fall Undergraduate Show, Chicago, IL</p>
-      <p>&emsp;2022, The Great Frame Up, The Klitzky Art Show, Chicago, IL</p>
-      <p>&emsp;2022, ExTV, Selected Ambient Works - Vol. 0, Chicago, IL</p>
-      <p>&emsp;2020, CICA Museum, Youth #7, Gyeonggi-do, South Korea</p>
-      <p>&emsp;2019, Gadabout, Artists for Asylum Expo, Chicago, IL</p>
-      <p>&emsp;2019, School of the Art Institute of Chicago, ArtBash, Chicago, IL</p>
-      <p>&emsp;2017, Open Signal, Echo AiR Winter Showcase, Portland, OR</p>
-      <p>&emsp;2016, U and E, Echo AiR Spring Showcase, Portland, OR</p>
-      <p>&emsp;2016, Disjecta, Echo AiR Winter Showcase, Portland, OR</p>
-      <p>&emsp;2015, Jordan Schnitzer Museum of Art, NewArt Northwest, Eugene, OR</p>
+      <p>&emsp;2026, University of Arkansas, <em>Deflate</em>, Fayettville, AR</p>
+      <p>&emsp;2025, Treehouse, <em>Corpora/Simulacrum</em>, Chicago, IL</p>
+      <p>&emsp;2025, Parlour and Ramp, <em>Through the Lens: An Analog Perspective</em>, Chicago, IL - exhibition extended and moved to Bellows Film Lab, Chicago, IL</p>
+      <p>&emsp;2022, Mana Contemporary, <em>Unmoored</em>, Chicago, IL</p>
+      <p>&emsp;2022, SAIC Galleries, <em>Fall Undergraduate Show</em>, Chicago, IL</p>
+      <p>&emsp;2022, The Great Frame Up, <em>The Klitzky Art Show</em>, Chicago, IL</p>
+      <p>&emsp;2022, ExTV, <em>Selected Ambient Works - Vol. 0</em>, Chicago, IL</p>
+      <p>&emsp;2020, CICA Museum, <em>Youth #7</em>, Gyeonggi-do, South Korea</p>
+      <p>&emsp;2019, Gadabout, <em>Artists for Asylum Expo</em>, Chicago, IL</p>
+      <p>&emsp;2019, School of the Art Institute of Chicago, <em>ArtBash</em>, Chicago, IL</p>
+      <p>&emsp;2017, Open Signal, <em>Echo AiR Winter Showcase</em>, Portland, OR</p>
+      <p>&emsp;2016, U and E, <em>Echo AiR Spring Showcase</em>, Portland, OR</p>
+      <p>&emsp;2016, Disjecta, <em>Echo AiR Winter Showcase</em>, Portland, OR</p>
+      <p>&emsp;2015, Jordan Schnitzer Museum of Art, <em>NewArt Northwest</em>, Eugene, OR</p>
       <br>
       <p>Published Works:</p>
-      <p>&emsp;The Light Gets In, Amateur Press, June 2025</p>
-      <p>&emsp;Northwest South Road. General Things Press, November 2024.</p>
+      <p>&emsp;<em>The Light Gets In</em>, Amateur Press, June 2025</p>
+      <p>&emsp;<em>Northwest South Road</em>. General Things Press, November 2024.</p>
       <br>
       <p>Publication Features:</p>
-      <p>&emsp;Borderline Press. Volume 1. April 2022.</p>
-      <p>&emsp;The Jade Plant Project. Volume 7, April 2022.</p>
+      <p>&emsp;<em>Borderline Press</em>. Volume 1. April 2022.</p>
+      <p>&emsp;<em>The Jade Plant Project</em>. Volume 7, April 2022.</p>
       <p>&emsp;"(de)construction" Revue Feu. February, 2021.</p>
-      <p>&emsp;SAIC Photography Catalog. 11th Edition, June 2020.</p>
-      <p>&emsp;Collective Terrain. Volume 1, December 2018.</p>
-      <p>&emsp;"Finalists" Photographer's Forum Best of High School and College Photography. Spring 2018.</p>
-      <p>&emsp;"Finalists" Photographer's Forum Best of High School and College Photography. Spring 2016.</p>
+      <p>&emsp;<em>SAIC Photography Catalog</em>. 11th Edition, June 2020.</p>
+      <p>&emsp;<em>Collective Terrain</em>. Volume 1, December 2018.</p>
+      <p>&emsp;"Finalists" <em>Photographer's Forum Best of High School and College Photography</em>. Spring 2018.</p>
+      <p>&emsp;"Finalists" <em>Photographer's Forum Best of High School and College Photography</em>. Spring 2016.</p>
     </div>`,
     folder: null,
     images: [],
