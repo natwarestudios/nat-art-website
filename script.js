@@ -110,6 +110,49 @@ const sections = {
     folder: null,
     images: [],
   },
+  CV: {
+    title: "CV",
+    subtitle: "",
+    description: `
+    <div>
+      <p>Solo Exhibitions:</p>
+      <p>&emsp;2019, StudioUs, Nat Ware, Chicago, IL</p>
+      <br>
+      <p>Duo Exhibitions:</p>
+      <p>&emsp;2024, The Second Room, To What End, Chicago, IL - in collaboration with Jordan Keyes</p>
+      <br>
+      <p>Group Exhibitions:</p>
+      <p>&emsp;2026, University of Arkansas, Deflate, Fayettville, AR</p>
+      <p>&emsp;2025, Treehouse, Corpora/Simulacrum, Chicago, IL</p>
+      <p>&emsp;2025, Parlour and Ramp, Through the Lens: An Analog Perspective, Chicago, IL - exhibition extended and moved to Bellows Film Lab, Chicago, IL</p>
+      <p>&emsp;2022, Mana Contemporary, Unmoored, Chicago, IL</p>
+      <p>&emsp;2022, SAIC Galleries, Fall Undergraduate Show, Chicago, IL</p>
+      <p>&emsp;2022, The Great Frame Up, The Klitzky Art Show, Chicago, IL</p>
+      <p>&emsp;2022, ExTV, Selected Ambient Works - Vol. 0, Chicago, IL</p>
+      <p>&emsp;2020, CICA Museum, Youth #7, Gyeonggi-do, South Korea</p>
+      <p>&emsp;2019, Gadabout, Artists for Asylum Expo, Chicago, IL</p>
+      <p>&emsp;2019, School of the Art Institute of Chicago, ArtBash, Chicago, IL</p>
+      <p>&emsp;2017, Open Signal, Echo AiR Winter Showcase, Portland, OR</p>
+      <p>&emsp;2016, U and E, Echo AiR Spring Showcase, Portland, OR</p>
+      <p>&emsp;2016, Disjecta, Echo AiR Winter Showcase, Portland, OR</p>
+      <p>&emsp;2015, Jordan Schnitzer Museum of Art, NewArt Northwest, Eugene, OR</p>
+      <br>
+      <p>Published Works:</p>
+      <p>&emsp;The Light Gets In, Amateur Press, June 2025</p>
+      <p>&emsp;Northwest South Road. General Things Press, November 2024.</p>
+      <br>
+      <p>Publication Features:</p>
+      <p>&emsp;Borderline Press. Volume 1. April 2022.</p>
+      <p>&emsp;The Jade Plant Project. Volume 7, April 2022.</p>
+      <p>&emsp;"(de)construction" Revue Feu. February, 2021.</p>
+      <p>&emsp;SAIC Photography Catalog. 11th Edition, June 2020.</p>
+      <p>&emsp;Collective Terrain. Volume 1, December 2018.</p>
+      <p>&emsp;"Finalists" Photographer's Forum Best of High School and College Photography. Spring 2018.</p>
+      <p>&emsp;"Finalists" Photographer's Forum Best of High School and College Photography. Spring 2016.</p>
+    </div>`,
+    folder: null,
+    images: [],
+  },
   "The Light Gets In": {
     title: "The Light Gets In",
     subtitle: "published by Amateur Press June 2025",
@@ -306,6 +349,7 @@ const sections = {
   },
 };
 
+const container = document.getElementById("container");
 const title = document.getElementById("title");
 const subtitle = document.getElementById("subtitle");
 const description = document.querySelector(".description");
@@ -338,9 +382,11 @@ function loadSection(sectionName) {
     mainImage.src = "";
     mainImage.style.display = "none";
     galleryContainer.style.display = "none";
+    container.classList.add("overflow");
   } else {
     mainImage.style.display = "block";
     galleryContainer.style.display = "flex";
+    container.classList.remove("overflow");
     section.images.forEach((image, index) => {
       const img = document.createElement("img");
       img.src = "images/" + section.folder + image;

@@ -37,15 +37,15 @@ body {
   display: flex;
 }
 
-.container {
+#container {
   display: flex;
-  flex-grow: 1;
-  justify-content: center;
+  width: 100%;
+  justify-content: flex-start;
   margin: 0px 32px;
   min-height: 0px;
 }
 
-.container > div {
+#container > div {
   display: flex;
   flex-direction: column;
   min-height: 0;
@@ -70,7 +70,7 @@ body {
 #main-img {
   max-width: 50vw;
   max-height: 33vw;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   justify-self: center;
   align-self: center;
 }
@@ -140,7 +140,6 @@ button:hover,
 
 .description {
   min-width: 10vw;
-  background-color: cyan;
 }
 
 .selected {
