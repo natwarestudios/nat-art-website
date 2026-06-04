@@ -140,6 +140,7 @@ button:hover,
 
 .description {
   min-width: 10vw;
+  background-color: cyan;
 }
 
 .selected {
@@ -254,6 +255,7 @@ textarea {
 
 .big-bottom-gap {
   margin-bottom: 16px;
+  margin-right: 32px;
 }
 
 .gallery-container {

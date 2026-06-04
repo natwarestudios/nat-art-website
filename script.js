@@ -311,6 +311,7 @@ const subtitle = document.getElementById("subtitle");
 const description = document.querySelector(".description");
 const mainImage = document.getElementById("main-img");
 const galleryDisplay = document.getElementById("gallery-display");
+const galleryContainer = document.querySelector(".gallery-container");
 
 function loadSection(sectionName) {
   const section = sections[sectionName];
@@ -335,7 +336,11 @@ function loadSection(sectionName) {
   galleryDisplay.innerHTML = "";
   if (section.images.length < 1) {
     mainImage.src = "";
+    mainImage.style.display = "none";
+    galleryContainer.style.display = "none";
   } else {
+    mainImage.style.display = "block";
+    galleryContainer.style.display = "flex";
     section.images.forEach((image, index) => {
       const img = document.createElement("img");
       img.src = "images/" + section.folder + image;
