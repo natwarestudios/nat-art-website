@@ -98,14 +98,13 @@ const sections = {
     subtitle: "",
     description: `
     <div>
-
-    <div>
-      <p>Nat Ware is a photographer originally from the Pacific Northwest now living in Chicago.</p>
-      <p>They hold a B.F.A. from the School of the Art Institute of Chicago.</p>
-      <p>They also help run Amateur Press, a small independent photobook press.</p> 
-      <p>---</p>
-    </div>
-        <img src="images/unnamed.jpg">
+      <div>
+        <p>Nat Ware is a photographer originally from the Pacific Northwest now living in Chicago.</p>
+        <p>They hold a B.F.A. from the School of the Art Institute of Chicago.</p>
+        <p>They also help run Amateur Press, a small independent photobook press.</p> 
+        <p>---</p>
+      </div>
+      <img src="images/unnamed.jpg">
     </div>`,
     folder: null,
     images: [],
@@ -156,8 +155,17 @@ const sections = {
   "The Light Gets In": {
     title: "The Light Gets In",
     subtitle: "published by Amateur Press June 2025",
-    description:
-      "Images build through repetition, erasure, overlay. The surface of the work is a site of accumulation. Rust, residue, gesture all sit in relation in these images. The Light Gets In reads as a visual whisper, modest in scale, but precise in its resonance. It’s less about declaring a moment, and more about holding space for one to emerge. What’s revealed isn’t the scene itself, but how the artist moves through it carefully, and responsively, which highlights the relationship between place and memory. What is prescribed and overlaid versus what is inherited and naturalized.",
+    description: `
+    <div>
+    <p class="no-padding-no-margin">Images build through repetition, erasure, overlay. The surface of the work is a site of accumulation. Rust, residue, gesture all sit in relation in these images. The Light Gets In reads as a visual whisper, modest in scale, but precise in its resonance. It’s less about declaring a moment, and more about holding space for one to emerge. What’s revealed isn’t the scene itself, but how the artist moves through it carefully, and responsively, which highlights the relationship between place and memory. What is prescribed and overlaid versus what is inherited and naturalized.</p>
+    <br>
+    <a
+      href="https://amateur-press.com/the-light-gets-in"
+      target="_blank"
+      class="grey-background"
+      >Order here</a
+    >
+    </div>`,
     folder: "the-light-gets-in/",
     images: [
       "book-photos-1.jpg",
@@ -182,7 +190,17 @@ const sections = {
   "Northwest South Road": {
     title: "Northwest South Road",
     subtitle: "published by General Things Press November 2024",
-    description: `"Northwest South Road" by Nat Ware was published in 2024 by General Things Press. The small risographed perfect bound book is 81 pages long, and about 4 1/2" x 5 1/2". The work is composed of photographs taken by Ware during a return trip to their family's home in August 2023. The images feature roadside textures, blackberry bushes at night, birds, and shifting light. The photos resist the notion of landscape as a static subject. Instead, they propose a different kind of record: one grounded in motion, attention, and memory. These are not definitive views, but passing ones, and the photographic frame offers both clarity and interruption. The camera becomes a participant in the landscape rather than a tool of capture. The photographs operate simultaneously as documentation and notation—marking both external details and internal rhythms. Here, the act of looking is inseparable from the terrain itself: slow, searching, and subject to change. Northwest South Road invites viewers into a geography shaped not just by location, but by return, by the way memory travels through space, and how the familiar continues to shift beneath the surface of close observation.`,
+    description: `
+    <div>
+    <p class="no-padding-no-margin">Northwest South Road" by Nat Ware was published in 2024 by General Things Press. The small risographed perfect bound book is 81 pages long, and about 4 1/2" x 5 1/2". The work is composed of photographs taken by Ware during a return trip to their family's home in August 2023. The images feature roadside textures, blackberry bushes at night, birds, and shifting light. The photos resist the notion of landscape as a static subject. Instead, they propose a different kind of record: one grounded in motion, attention, and memory. These are not definitive views, but passing ones, and the photographic frame offers both clarity and interruption. The camera becomes a participant in the landscape rather than a tool of capture. The photographs operate simultaneously as documentation and notation—marking both external details and internal rhythms. Here, the act of looking is inseparable from the terrain itself: slow, searching, and subject to change. Northwest South Road invites viewers into a geography shaped not just by location, but by return, by the way memory travels through space, and how the familiar continues to shift beneath the surface of close observation.</p>
+    <br>
+    <a
+      href=""
+      target="_blank"
+      class="grey-background"
+      >Order here</a
+    >
+    </div>`,
     folder: "northwest-south-road/",
     images: [
       "nat_ware_1.jpg",
