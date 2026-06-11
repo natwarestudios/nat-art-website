@@ -374,6 +374,7 @@ const description = document.querySelector(".description");
 const mainImage = document.getElementById("main-img");
 const galleryDisplay = document.getElementById("gallery-display");
 const galleryContainer = document.querySelector(".gallery-container");
+const test = document.getElementById("test");
 
 function loadSection(sectionName) {
   const section = sections[sectionName];
@@ -400,10 +401,12 @@ function loadSection(sectionName) {
     mainImage.src = "";
     mainImage.style.display = "none";
     galleryContainer.style.display = "none";
+    test.style.display = "none";
     container.classList.add("overflow");
   } else {
     mainImage.style.display = "block";
     galleryContainer.style.display = "flex";
+    test.style.display = "flex";
     container.classList.remove("overflow");
     section.images.forEach((image, index) => {
       const img = document.createElement("img");

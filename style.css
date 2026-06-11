@@ -86,12 +86,14 @@ body {
   min-height: 0px;
   min-width: 0;
 }
+
 .description {
   min-height: 0px;
   overflow: auto;
   width: 416px;
   min-width: 216px;
   flex-shrink: 1;
+  flex-grow: 1;
 }
 
 #main-img {
