@@ -403,12 +403,12 @@ function loadSection(sectionName) {
     mainImage.style.display = "none";
     galleryContainer.style.display = "none";
     test.style.display = "none";
-    container.classList.add("overflow");
+    description.classList.add("grow");
   } else {
     mainImage.style.display = "block";
     galleryContainer.style.display = "flex";
     test.style.display = "flex";
-    container.classList.remove("overflow");
+    description.classList.remove("grow");
     section.images.forEach((image, index) => {
       const img = document.createElement("img");
       img.src = "images/" + section.folder + image;

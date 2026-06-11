@@ -18,16 +18,7 @@ body {
   flex-direction: column;
 }
 
-.no-scroll {
-  overflow: hidden;
-}
-
-.overflow {
-  min-height: 0px;
-  width: 100%;
-  overflow: auto;
-  flex: 1;
-}
+/*------------------- styling  -------------------*/
 
 .header {
   background-color: var(--background-color);
@@ -92,7 +83,6 @@ body {
   width: 416px;
   min-width: 216px;
   flex-shrink: 1;
-  flex-grow: 1;
 }
 
 #main-img {
@@ -294,4 +284,14 @@ textarea {
 
 .grey-background {
   background-color: #f1f1f3;
+}
+
+/*------------------- classes applied at runtime with js -------------------*/
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.grow {
+  flex-grow: 1;
 }
