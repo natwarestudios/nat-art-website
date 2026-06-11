@@ -36,7 +36,7 @@ body {
 
 .side-bar {
   margin-left: 32px;
-  width: 232px;
+  width: 248px;
   flex-shrink: 0;
 }
 
@@ -53,10 +53,11 @@ body {
   min-width: 0;
 }
 
-#container > div {
+#sub-container {
   display: flex;
   flex-direction: column;
   min-height: 0;
+  min-width: 0;
   flex: 1;
 }
 
@@ -70,7 +71,8 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 0;
-  flex: 1 1 auto;
+  flex: 1 0 auto;
+  min-width: 400px;
 }
 
 .flex1 {
@@ -79,10 +81,15 @@ body {
   min-width: 0;
 }
 
+.flex2 {
+  flex: 1;
+  min-height: 0px;
+  min-width: 0;
+}
 .description {
   min-height: 0px;
   overflow: auto;
-  max-width: 416px;
+  width: 416px;
   min-width: 216px;
   flex-shrink: 1;
 }
