@@ -1,4 +1,5 @@
-// contact form modal
+/*------------------- contact form modal -------------------*/
+
 const modal = document.querySelector(".modal-overlay");
 const form = document.querySelector(".contact-form");
 const formCompleteInfo = document.querySelector(".form-complete");
@@ -60,28 +61,7 @@ function closeFormModal() {
   document.body.classList.remove("no-scroll");
 }
 
-// loading images
-const fileNames = [
-  "ankara-2-copy.jpg",
-  "ankara-5-copy.jpg",
-  "ankara-7-copy.jpg",
-  "ankara-window-copy.jpg",
-  "antalya-beach-2-copy.jpg",
-  "antalya-bw-broken-window-copy.jpg",
-  "antalya-net-bw-2-copy.jpg",
-  "sheep-bw-16-copy.jpg",
-  "ankara-2-copy.jpg",
-  "ankara-5-copy.jpg",
-  "ankara-7-copy.jpg",
-  "ankara-window-copy.jpg",
-  "antalya-beach-2-copy.jpg",
-  "antalya-bw-broken-window-copy.jpg",
-  "antalya-net-bw-2-copy.jpg",
-  "sheep-bw-16-copy.jpg",
-  "antalya-net-bw-2-copy.jpg",
-  "sheep-bw-16-copy.jpg",
-  "ankara-2-copy.jpg",
-];
+/*------------------- gallery arrows -------------------*/
 
 import { createIcons, ChevronRight, ChevronLeft } from "https://esm.sh/lucide";
 
@@ -91,6 +71,8 @@ createIcons({
     ChevronLeft,
   },
 });
+
+/*------------------- main content management -------------------*/
 
 const sections = {
   Info: {
@@ -368,14 +350,14 @@ const sections = {
   },
 };
 
-const container = document.getElementById("container");
 const title = document.getElementById("title");
 const subtitle = document.getElementById("subtitle");
-const description = document.querySelector(".description");
+const container = document.getElementById("container");
+const description = document.getElementById("description");
+const visualsContainer = document.getElementById("visuals-container");
 const mainImage = document.getElementById("main-img");
 const galleryDisplay = document.getElementById("gallery-display");
-const galleryContainer = document.querySelector(".gallery-container");
-const test = document.getElementById("test");
+const galleryContainer = document.getElementById("gallery-container");
 
 function loadSection(sectionName) {
   const section = sections[sectionName];
@@ -402,12 +384,12 @@ function loadSection(sectionName) {
     mainImage.src = "";
     mainImage.style.display = "none";
     galleryContainer.style.display = "none";
-    test.style.display = "none";
+    visualsContainer.style.display = "none";
     description.classList.add("grow");
   } else {
     mainImage.style.display = "block";
     galleryContainer.style.display = "flex";
-    test.style.display = "flex";
+    visualsContainer.style.display = "flex";
     description.classList.remove("grow");
     section.images.forEach((image, index) => {
       const img = document.createElement("img");
