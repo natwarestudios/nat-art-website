@@ -104,7 +104,7 @@ const sections = {
         <p>They also help run Amateur Press, a small independent photobook press.</p> 
         <p>---</p>
       </div>
-      <img src="images/unnamed.jpg">
+      <img src="images/unnamed.jpg"/>
     </div>`,
     folder: null,
     images: [],
@@ -123,7 +123,8 @@ const sections = {
       <p>Group Exhibitions:</p>
       <p>&emsp;2026, University of Arkansas, <em>Deflate</em>, Fayettville, AR</p>
       <p>&emsp;2025, Treehouse, <em>Corpora/Simulacrum</em>, Chicago, IL</p>
-      <p>&emsp;2025, Parlour and Ramp, <em>Through the Lens: An Analog Perspective</em>, Chicago, IL - exhibition extended and moved to Bellows Film Lab, Chicago, IL</p>
+      <p>&emsp;2025, Parlour and Ramp, <em>Through the Lens: An Analog Perspective</em>, Chicago, IL</p>
+      <p>&emsp;&emsp;- exhibition extended and moved to Bellows Film Lab, Chicago, IL</p>
       <p>&emsp;2022, Mana Contemporary, <em>Unmoored</em>, Chicago, IL</p>
       <p>&emsp;2022, SAIC Galleries, <em>Fall Undergraduate Show</em>, Chicago, IL</p>
       <p>&emsp;2022, The Great Frame Up, <em>The Klitzky Art Show</em>, Chicago, IL</p>

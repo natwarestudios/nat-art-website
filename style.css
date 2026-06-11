@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Lilex:ital,wght@0,100..700;1,100..700&display=swap");
 
+:root {
+  --background-color: #f1f1f3;
+  --highlight-color: #d3d3d3;
+}
+
 * {
   box-sizing: border-box;
   font-family: "Lilex", monospace;
@@ -25,7 +30,7 @@ body {
 }
 
 .header {
-  background-color: #f1f1f3;
+  background-color: var(--background-color);
   margin-bottom: 32px;
   padding: 16px 48px;
   display: flex;
@@ -81,12 +86,6 @@ body {
   min-width: 0;
 }
 
-.flex2 {
-  flex: 1;
-  min-height: 0px;
-  min-width: 0;
-}
-
 .description {
   min-height: 0px;
   overflow: auto;
@@ -111,7 +110,7 @@ body {
 ul {
   list-style-type: none;
   padding: 16px;
-  background-color: #f1f1f3;
+  background-color: var(--background-color);
   margin: 0;
 }
 
@@ -136,7 +135,7 @@ button {
 a:hover,
 button:hover,
 .gallery-img:hover {
-  background-color: #d3d3d3;
+  background-color: var(--highlight-color);
   cursor: pointer;
 }
 
@@ -249,7 +248,7 @@ textarea {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d3d3d3;
+  background: var(--highlight-color);
   border: 2px solid transparent;
   background-clip: padding-box;
 }
@@ -275,10 +274,6 @@ textarea {
   padding: 8px;
 }
 
-.big-gap {
-  gap: 32px;
-}
-
 .big-bottom-gap {
   margin-bottom: 16px;
   margin-right: 32px;
@@ -287,7 +282,7 @@ textarea {
 .gallery-container {
   display: flex;
   align-items: center;
-  background-color: #f1f1f3;
+  background-color: var(--background-color);
   outline: solid 1px black;
   margin-right: 32px;
   flex: 0 0 auto;
