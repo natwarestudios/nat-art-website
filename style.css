@@ -266,11 +266,12 @@ textarea {
 }
 
 #gallery-container {
+  display: flex;
+  flex: 0 0 auto;
   align-items: center;
   background-color: var(--background-color);
   outline: solid 1px black;
   margin-right: 32px;
-  flex: 0 0 auto;
 }
 
 .arrow {
@@ -293,4 +294,14 @@ textarea {
 
 .grey-background {
   background-color: #f1f1f3;
+}
+
+#gallery-container.shrink {
+  display: inline-flex;
+  align-self: flex-start;
+}
+
+#gallery-container.shrink #gallery-display {
+  flex: 0 0 auto;
+  width: auto;
 }

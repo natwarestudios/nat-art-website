@@ -358,8 +358,10 @@ const visualsContainer = document.getElementById("visuals-container");
 const mainImage = document.getElementById("main-img");
 const galleryDisplay = document.getElementById("gallery-display");
 const galleryContainer = document.getElementById("gallery-container");
+let currentSectionName = "Info";
 
 function loadSection(sectionName) {
+  currentSectionName = sectionName; // for gallery width function to access
   const section = sections[sectionName];
 
   // set title
@@ -391,6 +393,7 @@ function loadSection(sectionName) {
     galleryContainer.style.display = "flex";
     visualsContainer.style.display = "flex";
     description.classList.remove("grow");
+    // set up images
     section.images.forEach((image, index) => {
       const img = document.createElement("img");
       img.src = "images/" + section.folder + image;
@@ -408,6 +411,41 @@ function loadSection(sectionName) {
         img.click();
       }
     });
+    // tell them to update gallery width when all loaded
+    //   const loadedImgs = galleryDisplay.querySelectorAll("img");
+    //   let completeCount = 0;
+    //   loadedImgs.forEach((img) => {
+    //     if (img.complete) {
+    //       completeCount++;
+    //       if (completeCount === loadedImgs.length) {
+    //         updateGalleryWidth(loadedImgs);
+    //       }
+    //     } else {
+    //       img.addEventListener("load", () => {
+    //         completeCount++;
+    //         if (completeCount === loadedImgs.length) {
+    //           updateGalleryWidth(loadedImgs);
+    //         }
+    //       });
+    //     }
+    //   });
+  }
+}
+
+function updateGalleryWidth(loadedImgs) {
+  const totalImgsWidth = Array.from(loadedImgs).reduce((sum, img) => {
+    return sum + img.offsetWidth;
+  }, 0);
+  const gapWidth = (loadedImgs.length - 1) * 8; // hardcoded gap width
+  const arrowsWidth = 32; // navigation arrows on gallery container
+  const totalWidth = totalImgsWidth + gapWidth + arrowsWidth;
+
+  console.log(totalWidth);
+  console.log(visualsContainer.offsetWidth);
+  if (totalWidth < visualsContainer.offsetWidth) {
+    galleryContainer.classList.remove("shrink");
+  } else {
+    galleryContainer.classList.add("shrink");
   }
 }
 
@@ -423,4 +461,4 @@ document.querySelectorAll(".clickable").forEach((element) => {
   });
 });
 
-loadSection("Info");
+loadSection(currentSectionName);
