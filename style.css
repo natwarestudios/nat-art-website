@@ -298,7 +298,7 @@ textarea {
 
 #gallery-container.shrink {
   display: inline-flex;
-  align-self: flex-start;
+  align-self: center;
 }
 
 #gallery-container.shrink #gallery-display {

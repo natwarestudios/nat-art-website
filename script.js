@@ -393,6 +393,7 @@ function loadSection(sectionName) {
     galleryContainer.style.display = "flex";
     visualsContainer.style.display = "flex";
     description.classList.remove("grow");
+    const visualsContainerWidth = visualsContainer.offsetWidth; // setting before images load into container
     // set up images
     section.images.forEach((image, index) => {
       const img = document.createElement("img");
@@ -411,28 +412,28 @@ function loadSection(sectionName) {
         img.click();
       }
     });
-    // tell them to update gallery width when all loaded
-    //   const loadedImgs = galleryDisplay.querySelectorAll("img");
-    //   let completeCount = 0;
-    //   loadedImgs.forEach((img) => {
-    //     if (img.complete) {
-    //       completeCount++;
-    //       if (completeCount === loadedImgs.length) {
-    //         updateGalleryWidth(loadedImgs);
-    //       }
-    //     } else {
-    //       img.addEventListener("load", () => {
-    //         completeCount++;
-    //         if (completeCount === loadedImgs.length) {
-    //           updateGalleryWidth(loadedImgs);
-    //         }
-    //       });
-    //     }
-    //   });
+    //tell them to update gallery width when all loaded
+    const loadedImgs = galleryDisplay.querySelectorAll("img");
+    let completeCount = 0;
+    loadedImgs.forEach((img) => {
+      if (img.complete) {
+        completeCount++;
+        if (completeCount === loadedImgs.length) {
+          updateGalleryWidth(loadedImgs, visualsContainerWidth);
+        }
+      } else {
+        img.addEventListener("load", () => {
+          completeCount++;
+          if (completeCount === loadedImgs.length) {
+            updateGalleryWidth(loadedImgs, visualsContainerWidth);
+          }
+        });
+      }
+    });
   }
 }
 
-function updateGalleryWidth(loadedImgs) {
+function updateGalleryWidth(loadedImgs, containerMaxWidth) {
   const totalImgsWidth = Array.from(loadedImgs).reduce((sum, img) => {
     return sum + img.offsetWidth;
   }, 0);
@@ -440,12 +441,12 @@ function updateGalleryWidth(loadedImgs) {
   const arrowsWidth = 32; // navigation arrows on gallery container
   const totalWidth = totalImgsWidth + gapWidth + arrowsWidth;
 
-  console.log(totalWidth);
-  console.log(visualsContainer.offsetWidth);
-  if (totalWidth < visualsContainer.offsetWidth) {
-    galleryContainer.classList.remove("shrink");
-  } else {
+  console.log("total imgs width: " + totalWidth);
+  console.log("visuals container width: " + containerMaxWidth);
+  if (totalWidth < containerMaxWidth) {
     galleryContainer.classList.add("shrink");
+  } else {
+    galleryContainer.classList.remove("shrink");
   }
 }
 
