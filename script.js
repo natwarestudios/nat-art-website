@@ -358,6 +358,7 @@ const visualsContainer = document.getElementById("visuals-container");
 const mainImage = document.getElementById("main-img");
 const galleryDisplay = document.getElementById("gallery-display");
 const galleryContainer = document.getElementById("gallery-container");
+const arrowWrappers = document.querySelectorAll(".arrow-wrapper");
 let currentSectionName = "Info";
 
 function loadSection(sectionName) {
@@ -441,14 +442,37 @@ function updateGalleryWidth(loadedImgs, containerMaxWidth) {
   const arrowsWidth = 32; // navigation arrows on gallery container
   const totalWidth = totalImgsWidth + gapWidth + arrowsWidth;
 
-  console.log("total imgs width: " + totalWidth);
-  console.log("visuals container width: " + containerMaxWidth);
   if (totalWidth < containerMaxWidth) {
     galleryContainer.classList.add("shrink");
+    arrowWrappers.forEach((arrow) => {
+      arrow.style.display = "none";
+    });
   } else {
     galleryContainer.classList.remove("shrink");
+    arrowWrappers.forEach((arrow) => {
+      arrow.style.display = "flex";
+    });
   }
 }
+
+// gallery scroll
+galleryDisplay.addEventListener("scroll", () => {
+  const leftArrow = arrowWrappers[0].querySelector("svg");
+  const rightArrow = arrowWrappers[1].querySelector("svg");
+
+  const currentProgress =
+    galleryDisplay.scrollLeft /
+    (galleryDisplay.scrollWidth - galleryDisplay.clientWidth);
+
+  if (currentProgress <= 0.05) {
+    leftArrow.style.stroke = "#979799";
+  } else if (currentProgress >= 0.95) {
+    rightArrow.style.stroke = "#979799";
+  } else {
+    leftArrow.style.stroke = "black";
+    rightArrow.style.stroke = "black";
+  }
+});
 
 // side bar buttons
 document.querySelectorAll(".clickable").forEach((element) => {
