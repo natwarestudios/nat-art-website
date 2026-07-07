@@ -324,7 +324,13 @@ const sections = {
     description:
       "To What End is a duo exhibition showcasing textiles and photographs by presenting artists Nat Ware and Jordan Keyes. Studying themes of solitude, human connection, and the surrounding landscape, their works exist as mirrors to each other. The artists observe the natural work as not just the lived environment, but the relationships built with others - or lack thereof. Black and white images of trees, birds, and doorways- most in darkness- reveal small fragments of land while passing through. Viewers encounter a dominating quilted denim textile that evokes the captivating moment of light and shadow dancing over the water. To What End seeks to draw meaning and solace form this convergence of solitary moments.",
     folder: "selected-exhibitions/to-what-end/",
-    images: [],
+    images: [
+      "towhatend-1.jpeg",
+      "towhatend-2.jpeg",
+      "towhatend-3.jpeg",
+      "towhatend-5.jpeg",
+      "towhatend-6.jpeg",
+    ],
   },
   Unmoored: {
     title: "Unmoored --- group show at Mana Contemporary",
@@ -413,6 +419,7 @@ function loadSection(sectionName) {
         img.click();
       }
     });
+
     //tell them to update gallery width when all loaded
     const loadedImgs = galleryDisplay.querySelectorAll("img");
     let completeCount = 0;
@@ -452,11 +459,14 @@ function updateGalleryWidth(loadedImgs, containerMaxWidth) {
     arrowWrappers.forEach((arrow) => {
       arrow.style.display = "flex";
     });
+    updateArrowStyling();
   }
 }
 
 // gallery scroll
-galleryDisplay.addEventListener("scroll", () => {
+galleryDisplay.addEventListener("scroll", updateArrowStyling);
+
+function updateArrowStyling() {
   const leftArrow = arrowWrappers[0].querySelector("svg");
   const rightArrow = arrowWrappers[1].querySelector("svg");
 
@@ -466,13 +476,26 @@ galleryDisplay.addEventListener("scroll", () => {
 
   if (currentProgress <= 0.05) {
     leftArrow.style.stroke = "#979799";
+    rightArrow.style.stroke = "black";
+    arrowWrappers[0].classList.remove("clickable");
+    arrowWrappers[1].classList.add("clickable");
   } else if (currentProgress >= 0.95) {
+    leftArrow.style.stroke = "black";
     rightArrow.style.stroke = "#979799";
+    arrowWrappers[1].classList.remove("clickable");
+    arrowWrappers[0].classList.add("clickable");
   } else {
     leftArrow.style.stroke = "black";
     rightArrow.style.stroke = "black";
   }
-});
+}
+
+arrowWrappers[0].onclick = function () {
+  galleryDisplay.scrollLeft -= galleryDisplay.offsetWidth;
+};
+arrowWrappers[1].onclick = function () {
+  galleryDisplay.scrollLeft += galleryDisplay.offsetWidth;
+};
 
 // side bar buttons
 document.querySelectorAll(".clickable").forEach((element) => {
