@@ -312,3 +312,9 @@ textarea {
   flex: 0 0 auto;
   width: auto;
 }
+
+@media (max-width: 480px) {
+  .side-bar {
+    display: none;
+  }
+}
