@@ -317,4 +317,16 @@ textarea {
   .side-bar {
     display: none;
   }
+
+  #header-links {
+    display: none;
+  }
+
+  .header {
+    padding: 16px 32px;
+  }
+
+  #main-page-content {
+    flex-direction: column-reverse;
+  }
 }
