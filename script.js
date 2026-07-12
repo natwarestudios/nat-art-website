@@ -61,14 +61,20 @@ function closeFormModal() {
   document.body.classList.remove("no-scroll");
 }
 
-/*------------------- gallery arrows -------------------*/
+/*------------------- grabbing icons -------------------*/
 
-import { createIcons, ChevronRight, ChevronLeft } from "https://esm.sh/lucide";
+import {
+  createIcons,
+  ChevronRight,
+  ChevronLeft,
+  TextAlignJustify,
+} from "https://esm.sh/lucide";
 
 createIcons({
   icons: {
     ChevronRight,
     ChevronLeft,
+    TextAlignJustify,
   },
 });
 
@@ -365,6 +371,7 @@ const mainImage = document.getElementById("main-img");
 const galleryDisplay = document.getElementById("gallery-display");
 const galleryContainer = document.getElementById("gallery-container");
 const arrowWrappers = document.querySelectorAll(".arrow-wrapper");
+const verticalGallery = document.getElementById("vertical-gallery");
 let currentSectionName = "Info";
 
 function loadSection(sectionName) {
@@ -388,6 +395,21 @@ function loadSection(sectionName) {
     description.style.display = "none";
   }
   // set gallery imgs
+  if (window.innerWidth < 480) {
+    mainImage.src = "";
+    mainImage.style.display = "none";
+    galleryContainer.style.display = "none";
+    visualsContainer.style.display = "flex";
+    verticalGallery.innerHTML = "";
+
+    section.images.forEach((image, index) => {
+      const img = document.createElement("img");
+      img.src = "images/" + section.folder + image;
+      img.classList.add("stacked-img");
+      verticalGallery.appendChild(img);
+    });
+    return;
+  }
   galleryDisplay.innerHTML = "";
   if (section.images.length < 1) {
     mainImage.src = "";
@@ -497,6 +519,13 @@ arrowWrappers[1].onclick = function () {
   galleryDisplay.scrollLeft += galleryDisplay.offsetWidth;
 };
 
+// side bar placement for different device widths
+if (window.innerWidth < 480) {
+  document
+    .querySelector(".directory-button-wrapper")
+    .appendChild(document.querySelector(".side-bar"));
+}
+
 // side bar buttons
 document.querySelectorAll(".clickable").forEach((element) => {
   element.addEventListener("click", () => {
@@ -507,6 +536,16 @@ document.querySelectorAll(".clickable").forEach((element) => {
     element.classList.add("selected");
     loadSection(element.textContent.trim());
   });
+});
+
+// mobile directory button
+document.querySelector(".directory-button").addEventListener("click", () => {
+  const sidebar = document.querySelector(".side-bar");
+  if (sidebar.style.display === "block") {
+    sidebar.style.display = "none";
+  } else {
+    sidebar.style.display = "block";
+  }
 });
 
 loadSection(currentSectionName);
