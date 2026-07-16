@@ -306,6 +306,7 @@ textarea {
 
 .directory-button-wrapper {
   position: relative;
+  z-index: 100;
 }
 
 #vertical-gallery {
@@ -347,8 +348,9 @@ textarea {
   .side-bar {
     display: none;
     position: absolute;
-    top: 0;
-    right: 100%;
+    top: 100%;
+    right: 0;
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.25);
   }
 
   .stacked {
@@ -375,6 +377,12 @@ textarea {
 
   .directory-button {
     display: block;
+  }
+
+  .directory-button-open {
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.25);
+    margin-bottom: -5px;
+    border-bottom: solid 5px cyan;
   }
 
   #gallery-container {

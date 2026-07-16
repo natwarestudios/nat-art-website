@@ -539,13 +539,18 @@ document.querySelectorAll(".clickable").forEach((element) => {
 });
 
 // mobile directory button
-document.querySelector(".directory-button").addEventListener("click", () => {
-  const sidebar = document.querySelector(".side-bar");
-  if (sidebar.style.display === "block") {
-    sidebar.style.display = "none";
-  } else {
-    sidebar.style.display = "block";
-  }
-});
+
+document
+  .querySelector(".directory-button")
+  .addEventListener("click", (event) => {
+    const sidebar = document.querySelector(".side-bar");
+    if (sidebar.style.display === "block") {
+      sidebar.style.display = "none";
+      event.currentTarget.classList.remove("directory-button-open");
+    } else {
+      sidebar.style.display = "block";
+      event.currentTarget.classList.add("directory-button-open");
+    }
+  });
 
 loadSection(currentSectionName);
