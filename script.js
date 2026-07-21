@@ -522,13 +522,14 @@ arrowWrappers[1].onclick = function () {
 // side bar placement for different device widths
 if (window.innerWidth < 480) {
   document
-    .querySelector(".directory-button-wrapper")
+    .querySelector(".directory-button-container")
     .appendChild(document.querySelector(".side-bar"));
 
-  // mobile directory button
+  // mobile directory button functionality
   const directoryOverlay = document.querySelector(".directory-overlay");
   const directoryButton = document.querySelector(".directory-button");
   const sidebar = document.querySelector(".side-bar");
+  const buttonSpacer = document.querySelector(".button-spacer");
 
   directoryButton.addEventListener("click", (event) => {
     if (sidebar.style.display === "block") {
@@ -538,6 +539,7 @@ if (window.innerWidth < 480) {
       document.body.classList.add("no-scroll");
       sidebar.style.display = "block";
       directoryButton.classList.add("directory-button-open");
+      buttonSpacer.style.display = "block";
     }
   });
 
@@ -552,6 +554,7 @@ if (window.innerWidth < 480) {
     sidebar.style.display = "none";
     directoryButton.classList.remove("directory-button-open");
     document.body.classList.remove("no-scroll");
+    buttonSpacer.style.display = "none";
   }
 }
 
