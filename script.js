@@ -524,6 +524,35 @@ if (window.innerWidth < 480) {
   document
     .querySelector(".directory-button-wrapper")
     .appendChild(document.querySelector(".side-bar"));
+
+  // mobile directory button
+  const directoryOverlay = document.querySelector(".directory-overlay");
+  const directoryButton = document.querySelector(".directory-button");
+  const sidebar = document.querySelector(".side-bar");
+
+  directoryButton.addEventListener("click", (event) => {
+    if (sidebar.style.display === "block") {
+      closeDirectory();
+    } else {
+      directoryOverlay.classList.add("active");
+      document.body.classList.add("no-scroll");
+      sidebar.style.display = "block";
+      directoryButton.classList.add("directory-button-open");
+    }
+  });
+
+  directoryOverlay.addEventListener("click", (event) => {
+    if (event.target === directoryOverlay) {
+      closeDirectory();
+    }
+  });
+
+  function closeDirectory() {
+    directoryOverlay.classList.remove("active");
+    sidebar.style.display = "none";
+    directoryButton.classList.remove("directory-button-open");
+    document.body.classList.remove("no-scroll");
+  }
 }
 
 // side bar buttons
@@ -538,19 +567,20 @@ document.querySelectorAll(".clickable").forEach((element) => {
   });
 });
 
-// mobile directory button
-
-document
-  .querySelector(".directory-button")
-  .addEventListener("click", (event) => {
-    const sidebar = document.querySelector(".side-bar");
-    if (sidebar.style.display === "block") {
-      sidebar.style.display = "none";
-      event.currentTarget.classList.remove("directory-button-open");
-    } else {
-      sidebar.style.display = "block";
-      event.currentTarget.classList.add("directory-button-open");
-    }
-  });
-
 loadSection(currentSectionName);
+
+/*
+ implement this once I have the mobile version in a nice spot...
+const mobileQuery = window.matchMedia("(max-width: 479px)");
+
+function setupMobileLayout(e) {
+  if (e.matches) {
+    // move sidebar into directory button, wire up toggle
+  } else {
+    // move it back / tear down listeners if needed
+  }
+}
+
+mobileQuery.addEventListener("change", setupMobileLayout);
+setupMobileLayout(mobileQuery); // run once on load too
+*/

@@ -294,19 +294,28 @@ textarea {
 .directory-button {
   display: none;
   font-size: 24px;
-  background-color: white;
+  background-color: --var(--background-color);
   padding: 8px 8px;
-  outline: solid 1px black;
+  outline: dashed 1px black;
 }
 
 .directory-button:active,
 .directory-button:hover {
   background-color: var(--background-color);
+  outline: solid 1px black;
 }
 
 .directory-button-wrapper {
   position: relative;
   z-index: 100;
+}
+
+.directory-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: transparent;
+  z-index: 100;
+  display: none;
 }
 
 #vertical-gallery {
