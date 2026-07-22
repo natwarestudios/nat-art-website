@@ -5,10 +5,13 @@ const form = document.querySelector(".contact-form");
 const formCompleteInfo = document.querySelector(".form-complete");
 const formSubmitButton = form.querySelector('button[type="submit"]');
 
-document.getElementById("contact-button").addEventListener("click", () => {
-  modal.classList.add("active");
-  form.classList.add("active");
-  document.body.classList.add("no-scroll");
+document.querySelectorAll(".contact-button").forEach((element) => {
+  element.addEventListener("click", () => {
+    modal.classList.add("active");
+    form.classList.add("active");
+    console.log("clicked contact button");
+    document.body.classList.add("no-scroll");
+  });
 });
 document.querySelectorAll(".close-modal-button").forEach((button) => {
   button.addEventListener("click", () => {
