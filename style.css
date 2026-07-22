@@ -5,6 +5,7 @@
 :root {
   --background-color: #f1f1f3;
   --highlight-color: #d3d3d3;
+  --detail-color: #979799;
 }
 
 * {
@@ -55,6 +56,11 @@ ul {
   margin: 0;
 }
 
+#side-bar-ul li {
+  color: gray;
+  font-style: oblique;
+}
+
 .side-bar > ul {
   outline: solid 1px black;
 }
@@ -67,6 +73,15 @@ ul ul {
 
 .side-by-side {
   display: flex;
+}
+
+.center-children {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.careful-grow {
+  flex: 0 1 auto;
 }
 
 #container {
@@ -152,7 +167,7 @@ button:hover,
 }
 
 .copyright {
-  color: #979799;
+  color: var(--detail-color);
   text-align: center;
   margin: 8px auto;
 }
@@ -166,6 +181,11 @@ button:hover,
 .selected:hover {
   background-color: white;
   cursor: default;
+}
+
+#side-bar-ul .clickable {
+  color: black;
+  font-style: normal;
 }
 
 .modal-overlay {
@@ -288,7 +308,7 @@ textarea {
 
 .arrow-wrapper svg {
   min-width: 16px;
-  stroke: #979799;
+  stroke: var(--detail-color);
 }
 
 .directory-button-wrapper {
@@ -299,7 +319,7 @@ textarea {
 
 .directory-button-wrapper svg {
   min-width: 16px;
-  stroke: #979799;
+  stroke: var(--detail-color);
 }
 
 .button-spacer-wrapper svg {
@@ -347,6 +367,10 @@ textarea {
   display: none;
 }
 
+.mobile-info-only {
+  display: none;
+}
+
 /*------------------- applied at runtime with js -------------------*/
 
 .active {
@@ -379,6 +403,11 @@ textarea {
   body {
     height: auto;
   }
+
+  body.mobile-exception {
+    height: 100vh;
+  }
+
   .side-bar {
     display: none;
     position: absolute;
@@ -416,7 +445,6 @@ textarea {
   .directory-button-open {
     box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.25);
     margin-bottom: -5px;
-    border-bottom: solid 5px cyan;
     outline: solid 1px black;
   }
 
@@ -428,6 +456,7 @@ textarea {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    margin: 0px -16px;
   }
 
   .copyright {

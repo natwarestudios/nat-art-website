@@ -78,6 +78,50 @@ createIcons({
   },
 });
 
+/*------------------- mobile specific -------------------*/
+var mobileSpecificInfo = false;
+
+// side bar placement for different device widths
+if (window.innerWidth < 480) {
+  document
+    .querySelector(".directory-button-container")
+    .appendChild(document.querySelector(".side-bar"));
+
+  mobileSpecificInfo = true;
+
+  // mobile directory button functionality
+  const directoryOverlay = document.querySelector(".directory-overlay");
+  const directoryButton = document.querySelector(".directory-button");
+  const sidebar = document.querySelector(".side-bar");
+  const buttonSpacer = document.querySelector(".button-spacer");
+
+  directoryButton.addEventListener("click", (event) => {
+    if (sidebar.style.display === "block") {
+      closeDirectory();
+    } else {
+      directoryOverlay.classList.add("active");
+      document.body.classList.add("no-scroll");
+      sidebar.style.display = "block";
+      directoryButton.classList.add("directory-button-open");
+      buttonSpacer.style.display = "block";
+    }
+  });
+
+  directoryOverlay.addEventListener("click", (event) => {
+    if (event.target === directoryOverlay) {
+      closeDirectory();
+    }
+  });
+
+  function closeDirectory() {
+    directoryOverlay.classList.remove("active");
+    sidebar.style.display = "none";
+    directoryButton.classList.remove("directory-button-open");
+    document.body.classList.remove("no-scroll");
+    buttonSpacer.style.display = "none";
+  }
+}
+
 /*------------------- main content management -------------------*/
 
 const sections = {
@@ -378,6 +422,31 @@ function loadSection(sectionName) {
   currentSectionName = sectionName; // for gallery width function to access
   const section = sections[sectionName];
 
+  // mobile layout exception for Info page
+  if (section.title == "Info" && mobileSpecificInfo) {
+    document.body.classList.add("mobile-exception");
+    document.querySelectorAll(".mobile-info-only").forEach((element) => {
+      element.style.display = "flex";
+    });
+  } else {
+    document.body.classList.remove("mobile-exception");
+    document.querySelectorAll(".mobile-info-only").forEach((element) => {
+      element.style.display = "none";
+    });
+  }
+
+  // on mobile, copyright only includes site attribution on info page
+  const copyright = document.querySelector(".copyright");
+  if (mobileSpecificInfo) {
+    if (section.title == "Info") {
+      copyright.textContent = "© 2026 Nat Ware --- site by JS";
+    } else {
+      copyright.textContent = "© 2026 Nat Ware";
+    }
+  } else {
+    copyright.textContent = "© 2026 Nat Ware --- site by JS";
+  }
+
   // set title
   title.textContent = section.title;
   // set subtitle
@@ -518,45 +587,6 @@ arrowWrappers[0].onclick = function () {
 arrowWrappers[1].onclick = function () {
   galleryDisplay.scrollLeft += galleryDisplay.offsetWidth;
 };
-
-// side bar placement for different device widths
-if (window.innerWidth < 480) {
-  document
-    .querySelector(".directory-button-container")
-    .appendChild(document.querySelector(".side-bar"));
-
-  // mobile directory button functionality
-  const directoryOverlay = document.querySelector(".directory-overlay");
-  const directoryButton = document.querySelector(".directory-button");
-  const sidebar = document.querySelector(".side-bar");
-  const buttonSpacer = document.querySelector(".button-spacer");
-
-  directoryButton.addEventListener("click", (event) => {
-    if (sidebar.style.display === "block") {
-      closeDirectory();
-    } else {
-      directoryOverlay.classList.add("active");
-      document.body.classList.add("no-scroll");
-      sidebar.style.display = "block";
-      directoryButton.classList.add("directory-button-open");
-      buttonSpacer.style.display = "block";
-    }
-  });
-
-  directoryOverlay.addEventListener("click", (event) => {
-    if (event.target === directoryOverlay) {
-      closeDirectory();
-    }
-  });
-
-  function closeDirectory() {
-    directoryOverlay.classList.remove("active");
-    sidebar.style.display = "none";
-    directoryButton.classList.remove("directory-button-open");
-    document.body.classList.remove("no-scroll");
-    buttonSpacer.style.display = "none";
-  }
-}
 
 // side bar buttons
 document.querySelectorAll(".clickable").forEach((element) => {
