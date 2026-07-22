@@ -86,10 +86,11 @@ var mobileSpecificInfo = false;
 
 // side bar placement for different device widths
 if (window.innerWidth < 480) {
-  document
-    .querySelector(".directory-button-container")
-    .appendChild(document.querySelector(".side-bar"));
-
+  const directoryButtonContainer = document.querySelector(
+    ".directory-button-container",
+  );
+  directoryButtonContainer.appendChild(document.querySelector(".side-bar"));
+  directoryButtonContainer.style.display = "flex";
   mobileSpecificInfo = true;
 
   // mobile directory button functionality
@@ -123,6 +124,8 @@ if (window.innerWidth < 480) {
     document.body.classList.remove("no-scroll");
     buttonSpacer.style.display = "none";
   }
+} else {
+  document.querySelector(".directory-button-container").style.display = "none";
 }
 
 /*------------------- main content management -------------------*/
