@@ -80,6 +80,11 @@ ul ul {
   flex-wrap: wrap;
 }
 
+.center-self {
+  display: flex;
+  justify-self: center;
+}
+
 .careful-grow {
   flex: 0 1 auto;
 }

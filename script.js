@@ -132,17 +132,17 @@ if (window.innerWidth < 480) {
 
 const sections = {
   Info: {
-    title: "Info",
+    title: "",
     subtitle: "",
     description: `
     <div>
       <div>
-        <p>Nat Ware is a photographer originally from the Pacific Northwest now living in Chicago.</p>
+        <p class="no-padding-no-margin">Nat Ware is a photographer originally from the Pacific Northwest now living in Chicago.</p>
         <p>They hold a B.F.A. from the School of the Art Institute of Chicago.</p>
         <p>They also help run Amateur Press, a small independent photobook press.</p> 
-        <p>---</p>
       </div>
-      <img src="images/unnamed.jpg"/>
+      <br></br>
+      <img src="images/unnamed.jpg" class="center-self"/>
     </div>`,
     folder: null,
     images: [],
@@ -234,10 +234,10 @@ const sections = {
     <p class="no-padding-no-margin">Northwest South Road" by Nat Ware was published in 2024 by General Things Press. The small risographed perfect bound book is 81 pages long, and about 4 1/2" x 5 1/2". The work is composed of photographs taken by Ware during a return trip to their family's home in August 2023. The images feature roadside textures, blackberry bushes at night, birds, and shifting light. The photos resist the notion of landscape as a static subject. Instead, they propose a different kind of record: one grounded in motion, attention, and memory. These are not definitive views, but passing ones, and the photographic frame offers both clarity and interruption. The camera becomes a participant in the landscape rather than a tool of capture. The photographs operate simultaneously as documentation and notation—marking both external details and internal rhythms. Here, the act of looking is inseparable from the terrain itself: slow, searching, and subject to change. Northwest South Road invites viewers into a geography shaped not just by location, but by return, by the way memory travels through space, and how the familiar continues to shift beneath the surface of close observation.</p>
     <br>
     <a
-      href=""
+      href="https://www.quimbys.com/"
       target="_blank"
       class="grey-background"
-      >Order here</a
+      >Available at Quimby's</a
     >
     </div>`,
     folder: "northwest-south-road/",
@@ -445,16 +445,21 @@ function loadSection(sectionName) {
   const copyright = document.querySelector(".copyright");
   if (mobileSpecificInfo) {
     if (section.title == "Info") {
-      copyright.textContent = "© 2026 Nat Ware --- site by JS";
+      copyright.textContent = "© 2026 Nat Ware --- site by James Shipp";
     } else {
       copyright.textContent = "© 2026 Nat Ware";
     }
   } else {
-    copyright.textContent = "© 2026 Nat Ware --- site by JS";
+    copyright.textContent = "© 2026 Nat Ware --- site by James Shipp";
   }
 
   // set title
-  title.textContent = section.title;
+  if (section.title != "") {
+    title.style.display = "block";
+    title.textContent = section.title;
+  } else {
+    title.style.display = "none";
+  }
   // set subtitle
   if (section.subtitle != "") {
     subtitle.style.display = "block";
