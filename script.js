@@ -142,7 +142,7 @@ const sections = {
         <p>They also help run Amateur Press, a small independent photobook press.</p> 
       </div>
       <br></br>
-      <img src="images/unnamed.jpg" class="center-self"/>
+      <img id="info-image" src="images/unnamed.jpg"/>
     </div>`,
     folder: null,
     images: [],
@@ -429,7 +429,7 @@ function loadSection(sectionName) {
   const section = sections[sectionName];
 
   // mobile layout exception for Info page
-  if (section.title == "Info" && mobileSpecificInfo) {
+  if (section.title == "" && mobileSpecificInfo) {
     document.body.classList.add("mobile-exception");
     document.querySelectorAll(".mobile-info-only").forEach((element) => {
       element.style.display = "flex";
@@ -444,7 +444,7 @@ function loadSection(sectionName) {
   // on mobile, copyright only includes site attribution on info page
   const copyright = document.querySelector(".copyright");
   if (mobileSpecificInfo) {
-    if (section.title == "Info") {
+    if (section.title == "") {
       copyright.textContent = "© 2026 Nat Ware --- site by James Shipp";
     } else {
       copyright.textContent = "© 2026 Nat Ware";
