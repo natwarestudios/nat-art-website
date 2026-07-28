@@ -85,7 +85,7 @@ createIcons({
 var mobileSpecificInfo = false;
 
 // side bar placement for different device widths
-if (window.innerWidth < 480) {
+if (window.innerWidth < 840) {
   const directoryButtonContainer = document.querySelector(
     ".directory-button-container",
   );
@@ -475,7 +475,7 @@ function loadSection(sectionName) {
     description.style.display = "none";
   }
   // set gallery imgs
-  if (window.innerWidth < 480) {
+  if (window.innerWidth < 840) {
     mainImage.src = "";
     mainImage.style.display = "none";
     galleryContainer.style.display = "none";
