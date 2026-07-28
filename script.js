@@ -9,7 +9,6 @@ document.querySelectorAll(".contact-button").forEach((element) => {
   element.addEventListener("click", () => {
     modal.classList.add("active");
     form.classList.add("active");
-    console.log("clicked contact button");
     document.body.classList.add("no-scroll");
   });
 });

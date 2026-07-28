@@ -77,13 +77,14 @@ ul ul {
 }
 
 .center-children {
+  display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 #info-image {
-  display: flex;
-  justify-self: center;
+  display: block;
+  margin-left: 10%;
 }
 
 .careful-grow {
@@ -462,6 +463,7 @@ textarea {
 
   #info-image {
     width: 70%;
+    margin: 0 auto;
   }
 }
 
