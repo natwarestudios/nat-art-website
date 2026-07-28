@@ -30,6 +30,7 @@ button {
   background-color: transparent;
   border: none;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .header {
