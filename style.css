@@ -77,7 +77,6 @@ ul ul {
 }
 
 .center-children {
-  display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -370,6 +369,9 @@ textarea {
   display: none;
 }
 
+#spacer {
+  display: none;
+}
 /*------------------- applied at runtime with js -------------------*/
 
 .active {
@@ -429,6 +431,7 @@ textarea {
 
   #main-page-content {
     flex-direction: column-reverse;
+    justify-content: flex-end;
   }
 
   #description {
@@ -450,6 +453,9 @@ textarea {
     display: none;
   }
 
+  .mobile-info-only {
+    background-color: gre;
+  }
   #vertical-gallery {
     display: flex;
     flex-direction: column;
@@ -464,6 +470,10 @@ textarea {
   #info-image {
     width: 70%;
     margin: 0 auto;
+  }
+  #spacer {
+    display: block;
+    height: 76px;
   }
 }
 
