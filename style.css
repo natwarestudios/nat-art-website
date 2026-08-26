@@ -59,7 +59,6 @@ ul {
 
 #side-bar-ul li {
   color: gray;
-  font-style: oblique;
 }
 
 .side-bar > ul {
@@ -72,6 +71,10 @@ ul ul {
   gap: 8px;
 }
 
+.ul-bottom-margin {
+  margin-bottom: 16px;
+}
+
 .side-by-side {
   display: flex;
 }
@@ -82,12 +85,9 @@ ul ul {
 }
 
 #info-image {
-  display: block;
-  margin-left: 10%;
-}
-
-.careful-grow {
-  flex: 0 1 auto;
+  display: flex;
+  justify-self: flex-end;
+  margin-right: 20%;
 }
 
 #container {
@@ -327,13 +327,13 @@ textarea {
 
 .directory-button {
   display: none;
-  background-color: --var(--background-color);
+  background-color: var(--background-color);
   padding: 8px 8px;
   outline: dashed 1px black;
 }
 
 .directory-button:hover {
-  background-color: --var(--background-color);
+  background-color: var(--background-color);
 }
 
 .directory-button-container {
@@ -453,9 +453,6 @@ textarea {
     display: none;
   }
 
-  .mobile-info-only {
-    background-color: gre;
-  }
   #vertical-gallery {
     display: flex;
     flex-direction: column;
