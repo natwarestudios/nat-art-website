@@ -26,7 +26,7 @@ form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const formData = new FormData(form);
-  formData.append("access_key", "6a3a898d-7f17-4457-b817-b867e1cd67a8");
+  formData.append("access_key", "e4f5f037-2a58-483a-9d73-687739055655");
 
   const originalText = formSubmitButton.textContent;
 
@@ -244,7 +244,7 @@ function loadSection(sectionName) {
     galleryContainer.style.display = "flex";
     visualsContainer.style.display = "flex";
     description.classList.remove("grow");
-    const visualsContainerWidth = visualsContainer.offsetWidth; // setting before images load into container
+    const visualsContainerWidth = visualsContainer.offsetWidth - 32; // setting before images load into container
     // set up images
     section.images.forEach((image, index) => {
       const img = document.createElement("img");
