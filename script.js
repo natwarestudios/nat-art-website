@@ -79,43 +79,39 @@ createIcons({
 });
 
 /*------------------- mobile specific -------------------*/
-var mobileSpecificInfo = false;
+const mobileQuery = window.matchMedia("(max-width: 840px)");
+let mobileLayoutMode = mobileQuery.matches;
 
 // mobile directory button functionality
 const directoryOverlay = document.querySelector(".directory-overlay");
 const directoryButton = document.querySelector(".directory-button");
+const directoryButtonContainer = document.querySelector(
+  ".directory-button-container",
+);
 const sidebar = document.querySelector(".side-bar");
 const buttonSpacer = document.querySelector(".button-spacer");
 
-// side bar placement for different device widths
-if (window.innerWidth < 840) {
-  const directoryButtonContainer = document.querySelector(
-    ".directory-button-container",
-  );
-  directoryButtonContainer.appendChild(document.querySelector(".side-bar"));
-  directoryButtonContainer.style.display = "flex";
-  mobileSpecificInfo = true;
+// remember where the sidebar lives on desktop so it can be moved back
+const sidebarHome = sidebar.parentElement;
+const sidebarNextSibling = sidebar.nextElementSibling;
 
-  directoryButton.addEventListener("click", (event) => {
-    if (sidebar.style.display === "block") {
-      closeDirectory();
-    } else {
-      directoryOverlay.classList.add("active");
-      document.body.classList.add("no-scroll");
-      sidebar.style.display = "block";
-      directoryButton.classList.add("directory-button-open");
-      buttonSpacer.style.display = "block";
-    }
-  });
+directoryButton.addEventListener("click", (event) => {
+  if (sidebar.style.display === "block") {
+    closeDirectory();
+  } else {
+    directoryOverlay.classList.add("active");
+    document.body.classList.add("no-scroll");
+    sidebar.style.display = "block";
+    directoryButton.classList.add("directory-button-open");
+    buttonSpacer.style.display = "block";
+  }
+});
 
-  directoryOverlay.addEventListener("click", (event) => {
-    if (event.target === directoryOverlay) {
-      closeDirectory();
-    }
-  });
-} else {
-  document.querySelector(".directory-button-container").style.display = "none";
-}
+directoryOverlay.addEventListener("click", (event) => {
+  if (event.target === directoryOverlay) {
+    closeDirectory();
+  }
+});
 
 function closeDirectory() {
   directoryOverlay.classList.remove("active");
@@ -123,6 +119,21 @@ function closeDirectory() {
   directoryButton.classList.remove("directory-button-open");
   document.body.classList.remove("no-scroll");
   buttonSpacer.style.display = "none";
+}
+
+function updateLayout() {
+  mobileLayoutMode = mobileQuery.matches;
+  closeDirectory();
+
+  if (mobileLayoutMode) {
+    directoryButtonContainer.appendChild(document.querySelector(".side-bar"));
+    directoryButtonContainer.style.display = "flex";
+  } else {
+    sidebarHome.insertBefore(sidebar, sidebarNextSibling);
+    sidebar.style.display = "";
+    document.querySelector(".directory-button-container").style.display =
+      "none";
+  }
 }
 
 /*------------------- main content management -------------------*/
@@ -145,7 +156,7 @@ function loadSection(sectionName) {
   const section = sections[sectionName];
 
   // mobile layout exception for Info page
-  if (section.title == "" && mobileSpecificInfo) {
+  if (section.title == "" && mobileLayoutMode) {
     document.body.classList.add("mobile-exception");
     document.querySelectorAll(".mobile-info-only").forEach((element) => {
       element.style.display = "flex";
@@ -163,7 +174,7 @@ function loadSection(sectionName) {
 
   // on mobile, copyright only includes site attribution on info page
   const copyright = document.querySelector(".copyright");
-  if (mobileSpecificInfo) {
+  if (mobileLayoutMode) {
     if (section.title == "") {
       copyright.innerHTML = `<p>
           © 2026 Nat Ware --- site by
@@ -211,7 +222,7 @@ function loadSection(sectionName) {
     description.style.display = "none";
   }
   // set gallery imgs
-  if (window.innerWidth < 840) {
+  if (mobileLayoutMode) {
     mainImage.src = "";
     mainImage.style.display = "none";
     galleryContainer.style.display = "none";
@@ -349,7 +360,7 @@ document.querySelectorAll(".clickable").forEach((element) => {
     document.querySelectorAll(".clickable").forEach((deselectedElement) => {
       deselectedElement.classList.remove("selected");
     });
-    if (mobileSpecificInfo) {
+    if (mobileLayoutMode) {
       closeDirectory();
     }
     element.classList.add("selected");
@@ -357,20 +368,10 @@ document.querySelectorAll(".clickable").forEach((element) => {
   });
 });
 
+mobileQuery.addEventListener("change", () => {
+  updateLayout();
+  loadSection(currentSectionName);
+});
+
+updateLayout();
 loadSection(currentSectionName);
-
-/*
- implement this once I have the mobile version in a nice spot...
-const mobileQuery = window.matchMedia("(max-width: 479px)");
-
-function setupMobileLayout(e) {
-  if (e.matches) {
-    // move sidebar into directory button, wire up toggle
-  } else {
-    // move it back / tear down listeners if needed
-  }
-}
-
-mobileQuery.addEventListener("change", setupMobileLayout);
-setupMobileLayout(mobileQuery); // run once on load too
-*/
